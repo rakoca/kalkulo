@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style-global.css">
+    <link rel="stylesheet" href="styles/style-light.css">
     <script src="script.js" defer></script>
     <title>KalkULO</title>
 </head>
 <body>
-    <h1>KalkULO</h1>
-    <button id="test">Kliknij, żeby pokazać/ukryć pszczółkę</button>
-    <img src="https://static.inaturalist.org/photos/42092943/large.jpg" id="bee">
+    <header>
+        <a href="/">KalkULO</a>
+        <ul>
+            <li><a href="./tools/index.html">Kalkulatory</a></li>
+            <li><a href="#">O Uniwersyteckim LO</a></li>
+            <li><a href="#">O stronie i o mnie</a></li>
+        </ul>
+    </header>
+    <main>
+        <article>
+            <a href="./tools/niepewnosci-pomiarowe.html">
+            <img src="./images/pszczola.jpg">
+            <span class="tool-title">Niepewności pomiarowe</span>
+            <span class="tool-desc">Kalkulator, który znacząco ułatwia liczenie niepewności pomiarowych zgodnie ze sztuką niejakiego Mariusza Kamińskiego</span>
+            </a>
+        </article>
+        <article>
+            <a href="./tools/index.html">
+            <img src="./images/pszczola.jpg">
+            <span class="tool-title">W budowie</span>
+            <span class="tool-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
+            </a>
+        </article>
+    </main>
 </body>
 </html>

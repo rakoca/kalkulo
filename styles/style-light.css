@@ -1,0 +1,37 @@
+body {
+    background-color: #e9e9e9;
+}
+
+header {
+    background-color: rgb(255, 190, 10);
+    color: #fff;
+}
+
+header a {
+    color: #fff;
+}
+
+header > ul > li > a:hover {
+    color: #333;
+}
+
+main {
+    background-color: #fff;
+}
+
+main > article a {
+    color: #333;
+}
+
+main > article {
+    border-color: rgb(255, 190, 10);
+
+}
+
+main > article:hover {
+    background-color: rgb(255, 240, 200);
+}
+
+.tool-title {
+    border-color:  #333;
+}
