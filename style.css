@@ -1,0 +1,9 @@
+h1 {
+    color: #dc0;
+}
+
+#bee {
+    size: 20%;
+    display: none;
+    margin-top: 10px;
+}
