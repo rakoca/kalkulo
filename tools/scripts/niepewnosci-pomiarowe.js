@@ -60,7 +60,7 @@ document.getElementById('calculate').addEventListener('click', () => {
         document.getElementById('uncertainty').innerHTML = u.toFixed(precision + 2);
         u_fixed = Math.ceil(u*10**precision)/10**precision
         if (u_fixed >= 1.2*u) {
-            u_fixed = u;
+            u_fixed = u.toFixed(precision);
         }
         document.getElementById('uncertainty-fixed').innerHTML = u_fixed;
         document.getElementById('result').innerHTML = '(' + average.toFixed(precision) + ' &PlusMinus; ' + u_fixed + ')'
