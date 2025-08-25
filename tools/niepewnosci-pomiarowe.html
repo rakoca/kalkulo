@@ -3,9 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KalkULO</title>
+    <link rel="stylesheet" href="../styles/style-global.css">
+    <link rel="stylesheet" href="../styles/style-light.css">
+    <script src="../modules/jstat.min.js"></script>
+    <script src="./scripts/niepewnosci-pomiarowe.js" async defer></script>
+    <title>KalkULO - Niepewności pomiarowe</title>
 </head>
 <body>
-    <h1>W budowie</h1>
+    <header>
+        <a href="../index.html">KalkULO</a>
+        <ul>
+            <li><a href="./index.html">Kalkulatory</a></li>
+            <li><a href="#">O Uniwersyteckim LO</a></li>
+            <li><a href="#">O stronie i o mnie</a></li>
+        </ul>
+    </header>
+    <main style="text-align: left;">
+        <span class="tool-title tool-sub">Kalkulator niepewności pomiarowych</span>
+        <span class="tool-desc tool-sub">Rachunek niepewności to bardzo ważna część fizyki, która pozwala matematycznie określić wiarygodność naszego pomiaru. Każda zmierzona wielkość jest obarczona pewnym błędem, zależnym od dokładności przyrządu pomiarowego, staranności osoby dokonującej pomiaru a także stopnia trudności jego wykonania. Dlatego bardzo ważnym jest wyznaczać w każdym przypadku błąd pomiaru, żeby móc określić jego pewność.</span>
+        <span class="tool-desc tool-sub"><a href="./documents/pomiar-w-fizyce-mariusz-kamiński.pdf" target="_blank">Link do pliku z dokładnym opisem metody</a> (aut. mgr Mariusz Kamiński i olimpijczycy)</span>
+        <br>
+        <span class="tool-desc tool-sub regular">Błąd pomiaru bezpośredniego</span>
+        <span class="tool-desc tool-sub">Wpisz wartości pomiarów oddzielone średnikiem (bez błędów grubych):</span>
+        <input type="text" id="measurements">
+        <span class="tool-desc tool-sub">Wpisz dokładność przyrządu pomiarowego (jego podziałkę) oraz osoby dokonującej pomiaru (np. w przypadku stopera) - domyślnie zero:</span>
+        <input type="text" id="precision1"><input type="text" id="precision2">
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Średnia: </span>
+            <span class="tool-desc tool-sub regular result" id="average"></span>
+        </section>
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Odchylenie standardowe: </span>
+            <span class="tool-desc tool-sub regular result" id="s"></span>
+        </section>
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Kwantyl: </span>
+            <span class="tool-desc tool-sub regular result" id="quantile"></span>
+        </section>
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Niepewność pomiarowa A: </span>
+            <span class="tool-desc tool-sub regular result" id="uncertaintyA"></span>
+        </section><section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Niepewność pomiarowa B: </span>
+            <span class="tool-desc tool-sub regular result" id="uncertaintyB"></span>
+        </section>
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Całkowita niepewność pomiarowa: </span>
+            <span class="tool-desc tool-sub regular result" id="uncertainty"></span>
+        </section>
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Całkowita zaokrąglona niepewność pomiarowa: </span>
+            <span class="tool-desc tool-sub regular result" id="uncertainty-fixed"></span>
+        </section>
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc">Wynik: </span>
+            <span class="tool-desc tool-sub regular result" id="result"></span>
+        </section>
+        <button id="calculate">Oblicz</button>
+        <span class="tool-desc tool-sub"><span class="regular">Już wkrótce:</span> wyznaczanie niepewności pomiaru pośredniego</span>
+    </main>
 </body>
 </html>

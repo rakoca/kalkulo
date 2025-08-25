@@ -26,7 +26,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-left: 50px;
-    width: 100%;
 }
 
 header a {
@@ -81,9 +80,7 @@ main > article a {
     text-decoration: none;
 }
 
-main > article span {
-    display: block;
-}
+
 
 .tool-title {
     border-top: 2px solid;
@@ -91,11 +88,69 @@ main > article span {
     margin: 5px 0 10px 0;
     padding-top: 10px;
     font-family: 'Lato-Regular';
+    display: block;
 }
 
 .tool-desc {
     font-size: 1.5em;
     font-family: 'Lato-Light';
+    display: block;
+}
+
+.tool-sub {
+    border: none;
+}
+
+.regular {
+    font-family: 'Lato-Regular';
+}
+
+input, button {
+    font-size: 1.5em;
+    font-family: 'Lato-Light';
+    margin: 15px;
+    margin-left: 0;
+}
+
+#measurements {
+    width: 50%;
+}
+
+#precision1, #precision2 {
+    width: 85px;
+    margin-right: 15px;
+}
+
+.result-box {
+    display: flex;
+    align-items: end;
+    margin: 10px 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.result {
+    border: 1px solid #333;
+    min-width: 62px;
+    height: 1.3em;
+    text-align: center;
+    padding: 0 7px;
+}
+
+#result {
+    min-width: 107px;
+}
+
+.result-desc {
+    margin-right: 10px;
+}
+
+#precision {
+
+    width: 10%;
+    margin-left: 15px;
 }
 
 @media (max-width: 1475px) {
@@ -142,5 +197,14 @@ main > article span {
         width: 16em;
         height: 8em;
     }
-    
+
+    button {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .result-desc {
+        width: 100%;
+    }
 }
