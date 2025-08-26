@@ -1,33 +1,22 @@
-/*
-ERROR LIST
-1 lack of measurements
-*/
-
-function error(code) {
-    switch (code) {
-        case 1:
-            alert('Błąd 1: zbyt mała liczba pomiarów');
-            return;
-    }
-}
 document.getElementById('precision2').value = 0;
+document.getElementById('take-quantile-1').checked = 'true';
+document.getElementById('take-quantile-2').checked = 'true';
 
 document.getElementById('calculate').addEventListener('click', () => {
     let measurements;
     let length;
-    let t;
-    let a;
-    let b;
     let average = 0;
-    let precision = 0;
     let precision_next = 0;
-    let s = 0;
+    let a;
     let u;
+    let t;
+    let s = 0;
     let u_fixed;
-    let multiplier;
+    let precision = 0;
+    let b;
 
     measurements = document.getElementById('measurements').value;
-    measurements = measurements.replace(',', '.').split(';');
+    measurements = measurements.replaceAll(',', '.').split(';');
     length = measurements.length;
 
     for (let i = 0; i < length; ++i) {
@@ -40,7 +29,6 @@ document.getElementById('calculate').addEventListener('click', () => {
         } catch {
             continue;
         }
-
     }
     average /= length;
     for (let i = 0; i < length; ++i) {
@@ -49,8 +37,15 @@ document.getElementById('calculate').addEventListener('click', () => {
     if (length > 1) {
         t = jStat.studentt.inv(0.84135, length - 1)
         s = Math.sqrt(s / (length * (length - 1)));
-        a = t * s;
-        b = Math.sqrt((document.getElementById('precision1').value / Math.sqrt(3))**2 + (document.getElementById('precision2').value / Math.sqrt(3))**2);
+        if (window.innerWidth <= 640) {
+            document.getElementById('take-quantile-1').checked ? a = t * s : a = s;
+            console.log('<=640', document.getElementById('take-quantile-2').checked)
+        } else {
+            document.getElementById('take-quantile-2').checked ? a = t * s : a = s;
+            console.log('>640', document.getElementById('take-quantile-1').checked)
+        }
+        
+        b = Math.sqrt((document.getElementById('precision1').value.replace(',', '.') / Math.sqrt(3))**2 + (document.getElementById('precision2').value.replace(',', '.') / Math.sqrt(3))**2);
         u = Math.sqrt(a**2+b**2);
         document.getElementById('average').innerHTML = average.toFixed(precision+1);
         document.getElementById('s').innerHTML = s.toFixed(precision+2);
@@ -63,9 +58,20 @@ document.getElementById('calculate').addEventListener('click', () => {
             u_fixed = u.toFixed(precision);
         }
         document.getElementById('uncertainty-fixed').innerHTML = u_fixed;
-        document.getElementById('result').innerHTML = '(' + average.toFixed(precision) + ' &PlusMinus; ' + u_fixed + ')'
+        document.getElementById('result').innerHTML = average.toFixed(precision) + ' &PlusMinus; ' + u_fixed;  
     } else {
-        error(1);
+        alert('Błąd: wpisz co najmniej dwa pomiary');
     }
 
+});
+
+document.getElementById('clear').addEventListener('click', () => {
+    document.getElementById('average').innerHTML = '';
+    document.getElementById('s').innerHTML = '';
+    document.getElementById('quantile').innerHTML = '';
+    document.getElementById('uncertaintyA').innerHTML = '';
+    document.getElementById('uncertaintyB').innerHTML = '';
+    document.getElementById('uncertainty').innerHTML = '';
+    document.getElementById('uncertainty-fixed').innerHTML = '';
+    document.getElementById('result').innerHTML = '';  
 });

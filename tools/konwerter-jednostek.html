@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style-global.css">
+    <link rel="stylesheet" href="../styles/style-light.css">
+    <script src="../modules/jstat.min.js"></script>
+    <script src="./scripts/konwerter-jednostek.js" async defer></script>
+    <title>KalkULO - Niepewności pomiarowe</title>
+    <meta name="description" content="Prosty kalkulator liczący niepewność pomiarową zadanej serii danych">
+</head>
+<body>
+    <header>
+        <a href="../index.html">KalkULO</a>
+        <ul>
+            <li><a href="./index.html">Kalkulatory</a></li>
+            <li><a href="#">O Uniwersyteckim LO</a></li>
+            <li><a href="../about.html">O stronie i o mnie</a></li>
+        </ul>
+    </header>
+    <main>
+        <span class="tool-title tool-sub">Konwerter jednostek - <b>W BUDOWIE</b></span>
+        <span class="tool-desc tool-sub">Niezwykle poręczny Konwerter, który szybko pozwoli Ci zamienić nawet nieznane jednostki na te bardziej przystępne</span>
+        <span class="tool-desc tool-sub ">Wpisz wartość wielkości i symbol jednostki oraz symbol jednostki na którą chcesz dokonać konwersji (uwaga: kalkulator czuły na wielkość liter):</span>
+        <section class="result-box" id="converter-box">
+            <section class="result-box">  
+                <input type="text" id="value-from" class="normal-input">
+                <input type="text" id="unit-from" class="small-input">
+                <span class="tool-title tool-sub" style="padding-bottom:7px;">=</span>
+            </section>
+            <section class="result-box">
+                <span class="result-box"><span class="tool-desc regular big-result result" id="value-to"></span></span>
+                <input type="text" id="unit-to" class="small-input">
+            </section>
+        </section>
+        <section class="result-box">
+            <span class="tool-desc tool-sub result-desc noresp">Konwersja z&nbsp;jednostki </span>
+            <span class="tool-desc tool-sub regular result"></span>
+            <span class="tool-desc tool-sub result-desc noresp"> na </span>
+            <span class="tool-desc tool-sub regular result"></span>
+        </section>
+        <button id="convert">Konwertuj</button>
+        <button id="reverse">Odwróć konwerter</button>
+</main>
+</body>
+</html>

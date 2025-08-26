@@ -8,6 +8,7 @@
     <script src="../modules/jstat.min.js"></script>
     <script src="./scripts/niepewnosci-pomiarowe.js" async defer></script>
     <title>KalkULO - Niepewności pomiarowe</title>
+    <meta name="description" content="Prosty kalkulator liczący niepewność pomiarową zadanej serii danych">
 </head>
 <body>
     <header>
@@ -15,19 +16,19 @@
         <ul>
             <li><a href="./index.html">Kalkulatory</a></li>
             <li><a href="#">O Uniwersyteckim LO</a></li>
-            <li><a href="#">O stronie i o mnie</a></li>
+            <li><a href="../about.html">O stronie i o mnie</a></li>
         </ul>
     </header>
-    <main style="text-align: left;">
+    <main>
         <span class="tool-title tool-sub">Kalkulator niepewności pomiarowych</span>
         <span class="tool-desc tool-sub">Rachunek niepewności to bardzo ważna część fizyki, która pozwala matematycznie określić wiarygodność naszego pomiaru. Każda zmierzona wielkość jest obarczona pewnym błędem, zależnym od dokładności przyrządu pomiarowego, staranności osoby dokonującej pomiaru a także stopnia trudności jego wykonania. Dlatego bardzo ważnym jest wyznaczać w każdym przypadku błąd pomiaru, żeby móc określić jego pewność.</span>
         <span class="tool-desc tool-sub"><a href="./documents/pomiar-w-fizyce-mariusz-kamiński.pdf" target="_blank">Link do pliku z dokładnym opisem metody</a> (aut. mgr Mariusz Kamiński i olimpijczycy)</span>
         <br>
         <span class="tool-desc tool-sub regular">Błąd pomiaru bezpośredniego</span>
         <span class="tool-desc tool-sub">Wpisz wartości pomiarów oddzielone średnikiem (bez błędów grubych):</span>
-        <input type="text" id="measurements">
+        <input type="text" id="measurements" class="big-input">
         <span class="tool-desc tool-sub">Wpisz dokładność przyrządu pomiarowego (jego podziałkę) oraz osoby dokonującej pomiaru (np. w przypadku stopera) - domyślnie zero:</span>
-        <input type="text" id="precision1"><input type="text" id="precision2">
+        <input type="text" id="precision1" class="small-input"><input type="text" id="precision2" class="small-input">
         <section class="result-box">
             <span class="tool-desc tool-sub result-desc">Średnia: </span>
             <span class="tool-desc tool-sub regular result" id="average"></span>
@@ -36,14 +37,23 @@
             <span class="tool-desc tool-sub result-desc">Odchylenie standardowe: </span>
             <span class="tool-desc tool-sub regular result" id="s"></span>
         </section>
-        <section class="result-box">
+        <section class="result-box" id="quantile-box">
             <span class="tool-desc tool-sub result-desc">Kwantyl: </span>
             <span class="tool-desc tool-sub regular result" id="quantile"></span>
+            <span id="take-quantile-box-2">
+                <input type="checkbox" id="take-quantile-2">
+                <span class="tool-desc tool-sub result-desc"> Uwzględnij kwantyl</span>
+            </span>
         </section>
+        <span id="take-quantile-box-1">
+                <input type="checkbox" id="take-quantile-1">
+                <span class="tool-desc tool-sub result-desc"> Uwzględnij kwantyl</span>
+            </span>
         <section class="result-box">
             <span class="tool-desc tool-sub result-desc">Niepewność pomiarowa A: </span>
             <span class="tool-desc tool-sub regular result" id="uncertaintyA"></span>
-        </section><section class="result-box">
+        </section>
+        <section class="result-box">
             <span class="tool-desc tool-sub result-desc">Niepewność pomiarowa B: </span>
             <span class="tool-desc tool-sub regular result" id="uncertaintyB"></span>
         </section>
@@ -60,6 +70,8 @@
             <span class="tool-desc tool-sub regular result" id="result"></span>
         </section>
         <button id="calculate">Oblicz</button>
+        <button id="clear">Wyczyść pola</button>
+        <span class="tool-desc tool-sub"><span class="regular">Ważne:</span> jeżeli w jakimkolwiek wyniku pojawia się wyrażenie <span class="regular">NaN</span> to oznacza, że w danych wejściowych jest błąd</span>
         <span class="tool-desc tool-sub"><span class="regular">Już wkrótce:</span> wyznaczanie niepewności pomiaru pośredniego</span>
     </main>
 </body>

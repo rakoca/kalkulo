@@ -55,7 +55,6 @@ header > ul > li > a {
 main {
     min-height: 2000px;
     padding: 30px;
-    text-align: center;
 }
  
 main > article {
@@ -64,9 +63,11 @@ main > article {
     border: 5px dotted;
     border-radius: 20px;
     transition-duration: 200ms;
-    float: left;
     width: min-content;
-    height: 440px;
+    height: 370px;
+    display: inline-block;
+    float: none;
+    vertical-align: top;
 }
 
 main > article img {
@@ -79,8 +80,6 @@ main > article img {
 main > article a {
     text-decoration: none;
 }
-
-
 
 .tool-title {
     border-top: 2px solid;
@@ -112,11 +111,20 @@ input, button {
     margin-left: 0;
 }
 
-#measurements {
+.normal-input {
+    width: 158px;
+}
+
+button {
+    width: auto;
+    padding: 2px 7px;
+}
+
+.big-input {
     width: 50%;
 }
 
-#precision1, #precision2 {
+.small-input {
     width: 85px;
     margin-right: 15px;
 }
@@ -127,30 +135,43 @@ input, button {
     margin: 10px 0;
 }
 
-.clear {
-    clear: both;
-}
-
 .result {
     border: 1px solid #333;
-    min-width: 62px;
     height: 1.3em;
     text-align: center;
     padding: 0 7px;
+    min-width: 64px;
+    flex-shrink: 0;
+    margin: 0 10px;
+}
+
+.big-result {
+    min-width: 150px;
 }
 
 #result {
     min-width: 107px;
 }
 
-.result-desc {
-    margin-right: 10px;
+#take-quantile-1, #take-quantile-2 {
+    transform: scale(1.5);
+    margin: 0 0.5em 0 1.5em;
 }
 
-#precision {
+#take-quantile-box-1 {
+    display: none;
+}
 
-    width: 10%;
-    margin-left: 15px;
+#take-quantile-box-2 {
+    display: flex;
+}
+
+#quantile-box {
+    display: flex;
+}
+
+#value-to {
+    margin: 7px 15px;
 }
 
 @media (max-width: 1475px) {
@@ -177,22 +198,14 @@ input, button {
         margin: 0;
     }
 
-    main {
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    main article {
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-    }
-
-
     header > ul > li {
         margin: 10px 0;
     }  
     
+    main > article {
+        height: 440px;
+    }
+
     main > article img {
         width: 16em;
         height: 8em;
@@ -201,10 +214,35 @@ input, button {
     button {
         margin: 10px 0;
     }
+
+    #take-quantile-box {
+        display: block;
+    }
 }
 
 @media (max-width: 640px) {
     .result-desc {
         width: 100%;
     }
+
+    .noresp {
+        width: min-content;
+    }
+
+    #take-quantile-box-1 {
+        display: flex;
+    }
+
+    #take-quantile-box-2 {
+        display: none;
+    }
+
+    #converter-box {
+        display: block;
+    }
+
+    #value-to {
+        margin-left: 0;
+    }
+
 }
