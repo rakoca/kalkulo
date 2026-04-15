@@ -10,6 +10,7 @@ document.getElementById('calculate').addEventListener('click', () => {
     let a;
     let u;
     let t;
+    let sigma = 0;
     let s = 0;
     let u_fixed;
     let precision = 0;
@@ -32,11 +33,13 @@ document.getElementById('calculate').addEventListener('click', () => {
     }
     average /= length;
     for (let i = 0; i < length; ++i) {
-        s += (average - measurements[i]) ** 2;
+        sigma += (average - measurements[i]) ** 2;
     }
+    sigma = Math.sqrt(sigma/(length-1));
+
     if (length > 1) {
         t = jStat.studentt.inv(0.84135, length - 1)
-        s = Math.sqrt(s / (length * (length - 1)));
+        s = sigma / Math.sqrt(length);
         if (window.innerWidth <= 640) {
             document.getElementById('take-quantile-1').checked ? a = t * s : a = s;
             console.log('<=640', document.getElementById('take-quantile-2').checked)
@@ -48,7 +51,8 @@ document.getElementById('calculate').addEventListener('click', () => {
         b = Math.sqrt((document.getElementById('precision1').value.replace(',', '.') / Math.sqrt(3))**2 + (document.getElementById('precision2').value.replace(',', '.') / Math.sqrt(3))**2);
         u = Math.sqrt(a**2+b**2);
         document.getElementById('average').innerHTML = average.toFixed(precision+1);
-        document.getElementById('s').innerHTML = s.toFixed(precision+2);
+        document.getElementById('sigma').innerHTML = sigma.toFixed(precision+2);
+        document.getElementById('s').innerHTML = s.toFixed(precision+2)
         document.getElementById('quantile').innerHTML = t.toFixed(precision+2);
         document.getElementById('uncertaintyA').innerHTML = a.toFixed(precision+2);
         document.getElementById('uncertaintyB').innerHTML = b.toFixed(precision+2);
