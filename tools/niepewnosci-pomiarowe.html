@@ -22,7 +22,16 @@
     <main>
         <span class="tool-title tool-sub">Kalkulator niepewności pomiarowych</span>
         <span class="tool-desc tool-sub">Rachunek niepewności to bardzo ważna część fizyki, która pozwala matematycznie określić wiarygodność naszego pomiaru. Każda zmierzona wielkość jest obarczona pewnym błędem, zależnym od dokładności przyrządu pomiarowego, staranności osoby dokonującej pomiaru a także stopnia trudności jego wykonania. Dlatego bardzo ważnym jest wyznaczać w każdym przypadku błąd pomiaru, żeby móc określić jego pewność.</span>
-        <span class="tool-desc tool-sub"><a href="./documents/pomiar-w-fizyce-mariusz-kamiński.pdf" target="_blank">Link do pliku z dokładnym opisem metody</a> (aut. mgr Mariusz Kamiński i olimpijczycy)</span>
+        <span class="tool-desc tool-sub"><a href="./documents/pomiar-w-fizyce-mariusz-kamiński.pdf" target="_blank">Link do pliku z dokładnym opisem metody</a> (aut. mgr Mariusz Kamiński i olimpijczycy)
+        <br><br>
+        <b>Opcje do wyboru:</b>
+        <ul>
+            <li>Podziel na 2√3 - niepewność typu B jest obliczana poprzez podzielenie wpisanej wartości przez 2√3 zamiast domyślnego √3</li>
+            <li>Uwzględnij kwantyl - wynik niepewności typu A jest na końcu mnożony przez tzw. kwantyl, czyli współczynnik zależny od wykonanej liczby pomiarów</li>
+            <li>Zaokrąglaj zgodnie z zasadami - zaokrąglanie wartości błędu zgodnie z zasadami matematyki, a nie wg zasady zaokrąglania zawsze w górę z wyjątkiem, gdy zaokrąglenie powoduje wzrost błędu większy niż 20%</li>
+            <!-- <li>Liczba miejsc po przecinku - umożliwia wybranie, do ilu miejsc po przecinku powinien być zaokrąglony wynik oraz błąd</li> -->
+        </ul>
+        </span>
         <br>
         <span class="tool-desc tool-sub regular">Błąd pomiaru bezpośredniego</span>
         <span class="tool-desc tool-sub">Wpisz wartości pomiarów oddzielone średnikiem (bez błędów grubych):</span>
@@ -86,6 +95,9 @@
             <span class="tool-desc tool-sub result-desc">Wynik: </span>
             <span class="tool-desc tool-sub regular result" id="result"></span>
         </section>
+        <input type="checkbox" id="math-round" style="float:left;">
+        <span class="tool-desc tool-sub result-desc"> Zaokrąglaj zgodnie z zasadami</span>
+        <div style="clear:both"></div>
         <button id="calculate">Oblicz</button>
         <button id="clear">Wyczyść pola</button>
         <span class="tool-desc tool-sub"><span class="regular">Ważne:</span> jeżeli w jakimkolwiek wyniku pojawia się wyrażenie <span class="regular">NaN</span> to oznacza, że w danych wejściowych jest błąd</span>

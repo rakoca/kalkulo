@@ -24,6 +24,7 @@ document.getElementById('calculate').addEventListener('click', () => {
 
     let divider1 = document.getElementById('divider-precision1').checked;
     let divider2 = document.getElementById('divider-precision2').checked;
+    let math_round = document.getElementById('math-round').checked;
 
     for (let i = 0; i < length; ++i) {
         average += parseFloat(measurements[i]);
@@ -62,10 +63,18 @@ document.getElementById('calculate').addEventListener('click', () => {
         document.getElementById('uncertaintyA').innerHTML = a.toFixed(precision+2);
         document.getElementById('uncertaintyB').innerHTML = b.toFixed(precision+2);
         document.getElementById('uncertainty').innerHTML = u.toFixed(precision + 2);
-        u_fixed = Math.ceil(u*10**precision)/10**precision
-        if (u_fixed >= 1.2*u) {
-            u_fixed = u.toFixed(precision);
+
+        if (math_round) {
+            u_fixed = Math.round(u*10**precision)/10**precision
         }
+        else {
+            u_fixed = Math.ceil(u*10**precision)/10**precision
+            if (u_fixed >= 1.2*u) {
+                u_fixed = u.toFixed(precision);
+            }
+
+        }
+
         document.getElementById('uncertainty-fixed').innerHTML = u_fixed;
         document.getElementById('result').innerHTML = average.toFixed(precision) + ' &PlusMinus; ' + u_fixed;  
     } else {
