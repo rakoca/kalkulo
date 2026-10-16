@@ -127,6 +127,7 @@ button {
 .small-input {
     width: 85px;
     margin-right: 15px;
+    float: left;
 }
 
 .result-box {
@@ -153,9 +154,13 @@ button {
     min-width: 107px;
 }
 
-#take-quantile-1, #take-quantile-2 {
+#take-quantile-1, #take-quantile-2, #divider-precision1, #divider-precision2 {
     transform: scale(1.5);
     margin: 0 0.5em 0 1.5em;
+}
+
+#divider-precision1, #divider-precision2 {
+    height: 30px;
 }
 
 #take-quantile-box-1 {
@@ -166,9 +171,15 @@ button {
     display: flex;
 }
 
-#quantile-box {
+#quantile-box, .precision-box {
     display: flex;
 }
+
+.precision-box {
+    max-width: 500px;
+    padding-top: 10px;
+}
+
 
 #value-to {
     margin: 7px 15px;

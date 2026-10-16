@@ -28,11 +28,24 @@
         <span class="tool-desc tool-sub">Wpisz wartości pomiarów oddzielone średnikiem (bez błędów grubych):</span>
         <input type="text" id="measurements" class="big-input">
         <span class="tool-desc tool-sub">Wpisz dokładność przyrządu pomiarowego (jego podziałkę) oraz osoby dokonującej pomiaru (np. w przypadku stopera) - domyślnie zero:</span>
-        <input type="text" id="precision1" class="small-input"><input type="text" id="precision2" class="small-input">
+        <input type="text" id="precision1" class="small-input">
+        <section class="result-box precision-box">
+            <input type="checkbox" id="divider-precision1">
+            <span class="tool-desc tool-sub result-desc"> Podziel na 2√3</span>
+            
+        </section>
+        <div style="clear: left;"></div>
+        <input type="text" id="precision2" class="small-input">
+        <section class="result-box precision-box">
+            <input type="checkbox" id="divider-precision2">
+            <span class="tool-desc tool-sub result-desc"> Podziel na 2√3</span>
+        </section>
+        <div style="clear: left;"></div>
         <section class="result-box">
             <span class="tool-desc tool-sub result-desc">Średnia: </span>
             <span class="tool-desc tool-sub regular result" id="average"></span>
         </section>
+        <div style="clear: left;"></div>
         <section class="result-box">
             <span class="tool-desc tool-sub result-desc">Odchylenie standardowe: </span>
             <span class="tool-desc tool-sub regular result" id="sigma"></span>
@@ -76,7 +89,6 @@
         <button id="calculate">Oblicz</button>
         <button id="clear">Wyczyść pola</button>
         <span class="tool-desc tool-sub"><span class="regular">Ważne:</span> jeżeli w jakimkolwiek wyniku pojawia się wyrażenie <span class="regular">NaN</span> to oznacza, że w danych wejściowych jest błąd</span>
-        <span class="tool-desc tool-sub"><span class="regular">Już wkrótce:</span> wyznaczanie niepewności pomiaru pośredniego</span>
     </main>
 </body>
 </html>

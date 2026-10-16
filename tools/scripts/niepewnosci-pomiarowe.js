@@ -1,6 +1,8 @@
 document.getElementById('precision2').value = 0;
 document.getElementById('take-quantile-1').checked = 'true';
 document.getElementById('take-quantile-2').checked = 'true';
+document.getElementById('divider-precision1').checked = 'true';
+document.getElementById('divider-precision2').checked = 'true';
 
 document.getElementById('calculate').addEventListener('click', () => {
     let measurements;
@@ -19,6 +21,9 @@ document.getElementById('calculate').addEventListener('click', () => {
     measurements = document.getElementById('measurements').value;
     measurements = measurements.replaceAll(',', '.').split(';');
     length = measurements.length;
+
+    let divider1 = document.getElementById('divider-precision1').checked;
+    let divider2 = document.getElementById('divider-precision2').checked;
 
     for (let i = 0; i < length; ++i) {
         average += parseFloat(measurements[i]);
@@ -48,7 +53,7 @@ document.getElementById('calculate').addEventListener('click', () => {
             console.log('>640', document.getElementById('take-quantile-1').checked)
         }
         
-        b = Math.sqrt((document.getElementById('precision1').value.replace(',', '.') / Math.sqrt(3))**2 + (document.getElementById('precision2').value.replace(',', '.') / Math.sqrt(3))**2);
+        b = Math.sqrt((document.getElementById('precision1').value.replace(',', '.') / (divider1 ? 2*Math.sqrt(3) : Math.sqrt(3)))**2 + (document.getElementById('precision2').value.replace(',', '.') / (divider2 ? 2*Math.sqrt(3) : Math.sqrt(3)))**2);
         u = Math.sqrt(a**2+b**2);
         document.getElementById('average').innerHTML = average.toFixed(precision+1);
         document.getElementById('sigma').innerHTML = sigma.toFixed(precision+2);
